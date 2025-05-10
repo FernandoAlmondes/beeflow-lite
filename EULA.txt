@@ -1,0 +1,36 @@
+CONTRATO DE LICENÇA DE USUÁRIO FINAL (EULA)
+
+IMPORTANTE: LEIA CUIDADOSAMENTE ESTE CONTRATO ANTES DE INSTALAR OU UTILIZAR O SOFTWARE.
+
+Este Contrato de Licença de Usuário Final ("EULA") é um acordo legal entre você (pessoa física ou jurídica) e a Bee Solutions para o uso da versão Lite do software [Beeflow].
+
+AO INSTALAR, COPIAR OU UTILIZAR O SOFTWARE, VOCÊ CONCORDA EM ESTAR VINCULADO AOS TERMOS DESTE EULA. SE VOCÊ NÃO CONCORDAR COM ESTES TERMOS, NÃO INSTALE OU UTILIZE O SOFTWARE.
+
+1. CONCESSÃO DE LICENÇA
+   - Este EULA concede a você uma licença limitada, não exclusiva, intransferível e revogável para utilizar a versão Lite do software apenas para fins de avaliação ou teste interno.
+
+2. RESTRIÇÕES
+   - É estritamente proibido:
+     - Engajar-se em engenharia reversa, descompilação, decodificação ou tentativa de derivar o código-fonte do software.
+     - Modificar, adaptar, traduzir ou criar trabalhos derivados com base no software.
+     - Redistribuir, sublicenciar, alugar, vender, ou transferir de qualquer forma o software a terceiros sem autorização expressa e por escrito da Bee Solutions.
+
+3. PROPRIEDADE
+   - Este software é licenciado, não vendido. A Bee Solutions retém todos os direitos, títulos e interesses sobre o software, incluindo todos os direitos autorais e de propriedade intelectual.
+
+4. LIMITAÇÃO DE RESPONSABILIDADE
+   - O software é fornecido "no estado em que se encontra", sem garantias de qualquer tipo. Em nenhuma circunstância a Bee Solutions será responsável por quaisquer danos, diretos ou indiretos, decorrentes do uso ou da incapacidade de uso do software.
+
+5. RESCISÃO
+   - Este EULA será automaticamente rescindido se você violar qualquer um de seus termos e condições. Em caso de rescisão, você deve cessar imediatamente o uso do software e destruir todas as cópias em sua posse.
+
+6. DISPOSIÇÕES GERAIS
+   - Este EULA é regido pelas leis do Brasil.
+   - Caso qualquer disposição deste EULA seja considerada inválida ou inexequível, as demais disposições continuarão em pleno vigor.
+
+---
+
+Bee Solutions
+https://beesolutions.com.br
+Data: 26-04-2025
+Versão: 1.0

@@ -1,0 +1,1083 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_YESOREYERAM-INFINITY-DATASOURCE",
+      "label": "yesoreyeram-infinity-datasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "yesoreyeram-infinity-datasource",
+      "pluginName": "Infinity"
+    },
+    {
+      "name": "DS_MYSQL-BEEFLOW",
+      "label": "mysql-beeflow",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "mysql",
+      "pluginName": "MySQL"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.6.0"
+    },
+    {
+      "type": "datasource",
+      "id": "mysql",
+      "name": "MySQL",
+      "version": "11.6.0-pre"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "yesoreyeram-infinity-datasource",
+      "name": "Infinity",
+      "version": "3.1.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Desenvolvido por: Bee Solutions\nAutor: Fernando Almondes\nData: 24/03/2025 - 22:30",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"display: flex; align-items: center; justify-content: space-between; background-image: url('https://beesolutions.com.br/static/grafana/fundo-bee-05.jpg'); background-size: cover; padding: 20px 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\">\n    <div style=\"flex-shrink: 0;\">\n        <img src=\"https://beesolutions.com.br/static/home/images/bee/so-logo.png\" alt=\"Logo\" style=\"width: 60px; height: 50px;\">\n    </div>\n    <h2 style=\"flex-grow: 1; text-align: center; color: #ffffff; font-size: 24px; font-weight: bold; margin: 0;\">DASHBOARD BEEFLOW (IPs) - BEE</h2>\n    <div style=\" text-color: #ffffff; background-color: #ffffff; padding: 10px 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); color: #333;\">\n        <a style=\"color: inherit; text-decoration: none;\" href=\"https://soft.beesolutions.com.br/\" target=\"new_blank\"> <p style=\"margin: 0;\">BEESOFT</p></a>\n    </div>\n</div>\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.6.0",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1e3d46"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 50000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 100000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "packets"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background",
+                  "wrapText": false
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 5000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 10000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pps"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 9,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": "",
+            "skip_empty_lines": true,
+            "skip_lines_with_error": true
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "output",
+          "source": "url",
+          "type": "csv",
+          "url": "http://localhost:8000/api/nfdump1/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=$filtro&formato=csv&ordenacao=$ordenacao&agregacao=srcip&flows=$flows&limite=10&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Top 10 IPs de Origem",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "bpp": true,
+              "bps": false,
+              "bytes": true,
+              "duration": true,
+              "first": true,
+              "firstSeen": true,
+              "flows": true,
+              "geo": true,
+              "last": true,
+              "packets": true,
+              "proto": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "bpp": 5,
+              "bps": 6,
+              "bytes": 3,
+              "dstAddr": 2,
+              "duration": 8,
+              "firstSeen": 0,
+              "flows": 7,
+              "packets": 4,
+              "srcAddr": 1
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1e3d46"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "flows"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 1000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 10000
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 6,
+        "x": 9,
+        "y": 3
+      },
+      "id": 16,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "srcAddr",
+              "text": "",
+              "type": "string"
+            },
+            {
+              "selector": "flows",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "csv_options": {
+            "delimiter": "",
+            "skip_empty_lines": true,
+            "skip_lines_with_error": true
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "output",
+          "source": "url",
+          "type": "csv",
+          "url": "http://localhost:8000/api/nfdump1/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=$filtro&formato=csv&ordenacao=flows&agregacao=srcip&flows=$flows&limite=10&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Top 10 Flows",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "bpp": true,
+              "bps": true,
+              "bytes": true,
+              "duration": true,
+              "first": true,
+              "firstSeen": true,
+              "flows": false,
+              "geo": true,
+              "last": true,
+              "packets": true,
+              "proto": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "bpp": 4,
+              "bps": 5,
+              "bytes": 2,
+              "duration": 7,
+              "firstSeen": 1,
+              "flows": 6,
+              "packets": 3,
+              "srcAddr": 0
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1e3d46"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 50000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 100000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "packets"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background",
+                  "wrapText": false
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 5000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 10000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pps"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 9,
+        "x": 15,
+        "y": 3
+      },
+      "id": 8,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": "",
+            "skip_empty_lines": true,
+            "skip_lines_with_error": true
+          },
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "output",
+          "source": "url",
+          "type": "csv",
+          "url": "http://localhost:8000/api/nfdump1/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=$filtro&formato=csv&ordenacao=$ordenacao&agregacao=dstip&flows=$flows&limite=10&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Top 10 IPs de Destino",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "bpp": true,
+              "bps": false,
+              "bytes": true,
+              "duration": true,
+              "first": true,
+              "firstSeen": true,
+              "flows": true,
+              "geo": true,
+              "last": true,
+              "packets": true,
+              "proto": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "bpp": 5,
+              "bps": 6,
+              "bytes": 3,
+              "dstAddr": 2,
+              "duration": 8,
+              "firstSeen": 0,
+              "flows": 7,
+              "packets": 4,
+              "srcAddr": 1
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "noValue": "Selecione um intervalo de até 1h ou use as Trends ;)",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "proto"
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Last *",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "columns": [],
+          "computed_columns": [],
+          "data": "",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "$map($, function($v){{\n     \"timestamp\": $v.timestamp,\n     \"$unidade\": $v.$unidade,\n     \"${agregacao:text}\": $v.${agregacao:text},\n     \"src_ip\": \"${agregacao:text}\" = \"srcAddr\" ? $v.${agregacao:text} & \" (\" & $v.srcAS & \" - \" & $v.srcOrg & \")\",\n     \"dst_ip\": \"${agregacao:text}\" = \"dstAddr\" ? $v.${agregacao:text} & \" (\" & $v.dstAS & \" - \" & $v.dstOrg & \")\",\n     \"src_asn_nome\": \"${agregacao:text}\" = \"srcAS\" ? $v.srcOrg & \" (\" & \"AS\" & $v.${agregacao:text} & \")\",\n     \"dst_asn_nome\": \"${agregacao:text}\" = \"dstAS\" ? $v.dstOrg & \" (\" & \"AS\" & $v.${agregacao:text} & \")\",\n     \"protocolo_nome\": \"${agregacao:text}\" = \"proto\" ?  $v.${agregacao:text} & \" (\" & $v.protocolo_nome & \")\",\n     \"servico_nome\": \"${agregacao:text}\" = \"dstPort\" or \"${agregacao:text}\" = \"srcPort\" ? $v.${agregacao:text} & \" (\" & $v.servico_nome & \"/\" & $v.protocolo_nome & \")\"\n}})",
+          "source": "url",
+          "type": "json",
+          "url": "http://localhost:8000/api/nfdump5/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=$filtro&agregacao=$agregacao&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Flows p/ IP ($agregacao) ($unidade)",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "timestamp"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "bps"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "pps"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "proto"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "srcAddr"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "dstAddr"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "srcPort"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "dstPort"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "srcAS"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "dstAS"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "prepareTimeSeries",
+          "options": {
+            "format": "multi"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/bps |pps /",
+            "renamePattern": ""
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [
+    "beesolutions",
+    "beeflow",
+    "netflow"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "mysql",
+          "uid": "${DS_MYSQL-BEEFLOW}"
+        },
+        "definition": "select distinct router from beeapi_flow;",
+        "includeAll": true,
+        "label": "Host",
+        "multi": true,
+        "name": "host",
+        "options": [],
+        "query": "select distinct router from beeapi_flow;",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "10",
+          "value": "10"
+        },
+        "description": "",
+        "label": "Flows",
+        "name": "flows",
+        "options": [
+          {
+            "selected": true,
+            "text": "10",
+            "value": "10"
+          },
+          {
+            "selected": false,
+            "text": "100",
+            "value": "100"
+          },
+          {
+            "selected": false,
+            "text": "1000",
+            "value": "1000"
+          }
+        ],
+        "query": "10, 100, 1000",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "srcip",
+          "value": "srcip"
+        },
+        "label": "Agregação",
+        "name": "agregacao",
+        "options": [
+          {
+            "selected": true,
+            "text": "srcAddr",
+            "value": "srcip"
+          },
+          {
+            "selected": false,
+            "text": "dstAddr",
+            "value": "dstip"
+          }
+        ],
+        "query": "srcAddr : srcip, dstAddr : dstip",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {
+          "text": "bytes",
+          "value": "bytes"
+        },
+        "label": "Ordenação",
+        "name": "ordenacao",
+        "options": [
+          {
+            "selected": true,
+            "text": "bytes",
+            "value": "bytes"
+          },
+          {
+            "selected": false,
+            "text": "packets",
+            "value": "packets"
+          },
+          {
+            "selected": false,
+            "text": "flows",
+            "value": "flows"
+          }
+        ],
+        "query": "bytes,packets,flows",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "bps",
+          "value": "bps"
+        },
+        "label": "Unidade",
+        "name": "unidade",
+        "options": [
+          {
+            "selected": true,
+            "text": "bps",
+            "value": "bps"
+          },
+          {
+            "selected": false,
+            "text": "pps",
+            "value": "pps"
+          }
+        ],
+        "query": "bps, pps",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "any",
+          "value": "any"
+        },
+        "label": "Filtro",
+        "name": "filtro",
+        "options": [
+          {
+            "selected": true,
+            "text": "any",
+            "value": "any"
+          }
+        ],
+        "query": "any",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "68786e2c-2162-11f0-91fb-87ea6886144f",
+          "value": "68786e2c-2162-11f0-91fb-87ea6886144f"
+        },
+        "hide": 2,
+        "label": "Token",
+        "name": "token",
+        "options": [
+          {
+            "selected": true,
+            "text": "68786e2c-2162-11f0-91fb-87ea6886144f",
+            "value": "68786e2c-2162-11f0-91fb-87ea6886144f"
+          }
+        ],
+        "query": "68786e2c-2162-11f0-91fb-87ea6886144f",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Dashboard Beeflow (IPs) - BEE",
+  "uid": "cegv1nfvbb0u8b",
+  "version": 18,
+  "weekStart": ""
+}

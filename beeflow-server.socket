@@ -1,0 +1,8 @@
+[Unit]
+Description=Beeflow socket
+
+[Socket]
+ListenStream=/run/beeflow-server.sock
+
+[Install]
+WantedBy=sockets.target

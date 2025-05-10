@@ -1,0 +1,13 @@
+[Unit]
+Description=Beeflow server
+Requires=network.target mysql.service
+After=network.target mysql.service
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/bee/beeflow
+ExecStart=/opt/bee/beeflow/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/beeflow-server.sock beesoft.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

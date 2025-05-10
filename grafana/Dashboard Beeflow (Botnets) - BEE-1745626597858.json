@@ -1,0 +1,1071 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_YESOREYERAM-INFINITY-DATASOURCE",
+      "label": "yesoreyeram-infinity-datasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "yesoreyeram-infinity-datasource",
+      "pluginName": "Infinity"
+    },
+    {
+      "name": "DS_MYSQL-BEEFLOW",
+      "label": "mysql-beeflow",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "mysql",
+      "pluginName": "MySQL"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.6.1"
+    },
+    {
+      "type": "datasource",
+      "id": "mysql",
+      "name": "MySQL",
+      "version": "11.6.1"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "yesoreyeram-infinity-datasource",
+      "name": "Infinity",
+      "version": "3.2.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Desenvolvido por: Bee Solutions\nAutor: Fernando Almondes\nData: 24/03/2025 - 22:30",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"display: flex; align-items: center; justify-content: space-between; background-image: url('https://beesolutions.com.br/static/grafana/fundo-bee-05.jpg'); background-size: cover; padding: 20px 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\">\n    <div style=\"flex-shrink: 0;\">\n        <img src=\"https://beesolutions.com.br/static/home/images/bee/so-logo.png\" alt=\"Logo\" style=\"width: 60px; height: 50px;\">\n    </div>\n    <h2 style=\"flex-grow: 1; text-align: center; color: #ffffff; font-size: 24px; font-weight: bold; margin: 0;\">DASHBOARD BEEFLOW (BOTNETS) - BEE</h2>\n    <div style=\" text-color: #ffffff; background-color: #ffffff; padding: 10px 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); color: #333;\">\n        <a style=\"color: inherit; text-decoration: none;\" href=\"https://soft.beesolutions.com.br/\" target=\"new_blank\"> <p style=\"margin: 0;\">BEESOFT</p></a>\n    </div>\n</div>\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.6.1",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "noValue": "Selecione um intervalo de até 1h ou use as Trends ;)",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "proto"
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Last *",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.1",
+      "targets": [
+        {
+          "columns": [],
+          "computed_columns": [],
+          "data": "",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "$map($, function($v){{\n     \"timestamp\": $v.timestamp,\n     \"$unidade\": $v.$unidade,\n     \"src_ip\": \"${agregacao:text}\" = \"src\" ? $v.srcAddr & \" (\" & $v.srcAS & \" - \" & $v.srcOrg & \")\",\n     \"dst_ip\": \"${agregacao:text}\" = \"dst\" ? $v.dstAddr & \" (\" & $v.dstAS & \" - \" & $v.dstOrg & \")\"\n}})",
+          "source": "url",
+          "type": "json",
+          "url": "http://localhost:8000/api/nfdump5/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=${agregacao:text}port_botnets&agregacao=$agregacao&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Tráfego por IP Atacado/Infectado (${agregacao:text} > 1000pks)",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "timestamp"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "bps"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "pps"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "proto"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "srcAddr"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "dstAddr"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "srcPort"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "dstPort"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "srcAS"
+              },
+              {
+                "destinationType": "other",
+                "targetField": "dstAS"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "prepareTimeSeries",
+          "options": {
+            "format": "multi"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/bps |pps /",
+            "renamePattern": ""
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1e3d46"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bytes"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decbytes"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 50000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 100000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "packets"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background",
+                  "wrapText": false
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 5000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 10000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "flags"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 157
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 21,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.1",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": "",
+            "skip_empty_lines": true,
+            "skip_lines_with_error": true
+          },
+          "data": "firstSeen,lastSeen,proto,exporterID,engine,srcAddr,dstAddr,srcPort,dstPort,icmpTYpe,icmpCode,srcNet,dstNet,routerIP,srcAS,dstAS,packets,bytes,flags,tos,inSrcMac,outDstMac,inDstMac,outSrcMac,bps,pps,bpp,srcGeo,dstGeo,srcLocation,dstLocation,srcOrg,dstOrg\n2025-03-21 21:34:48.920,2025-03-21 21:34:48.920,6,1,0/0,214.235.80.3,192.168.237.152,1710,64,0,64,214.235.80.3/0,192.168.237.152/0,192.168.237.169,749,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,DNIC-AS-00749,\n2025-03-21 21:34:49.920,2025-03-21 21:34:49.920,6,1,0/0,16.126.145.240,192.168.237.152,1711,64,0,64,16.126.145.240/0,192.168.237.152/0,192.168.237.169,16509,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,AMAZON-02,\n2025-03-21 21:34:50.940,2025-03-21 21:34:50.940,6,1,0/0,44.11.115.128,192.168.237.152,1712,64,0,64,44.11.115.128/0,192.168.237.152/0,192.168.237.169,49268,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,BE,..,EU/BE/Belgium long/lat: 50.8509/4.3447,no location info,Hermes Telecom BVBA,\n2025-03-21 21:34:51.940,2025-03-21 21:34:51.940,6,1,0/0,125.236.250.224,192.168.237.152,1713,64,0,64,125.236.250.224/0,192.168.237.152/0,192.168.237.169,0,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,NZ,..,OC/NZ/Auckland long/lat: -36.8492/174.7889,no location info,,\n2025-03-21 21:34:52.960,2025-03-21 21:34:52.960,6,1,0/0,44.224.163.10,192.168.237.152,1714,64,0,64,44.224.163.10/0,192.168.237.152/0,192.168.237.169,16509,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/Boardman long/lat: 45.8401/-119.7050,no location info,AMAZON-02,\n2025-03-21 21:34:53.960,2025-03-21 21:34:53.960,6,1,0/0,106.146.92.78,192.168.237.152,1715,64,0,64,106.146.92.78/0,192.168.237.152/0,192.168.237.169,2516,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,JP,..,AS/JP/Osaka long/lat: 34.6967/135.5154,no location info,KDDI CORPORATION,\n2025-03-21 21:34:54.920,2025-03-21 21:34:54.920,6,1,0/0,30.142.10.147,192.168.237.152,1716,64,0,64,30.142.10.147/0,192.168.237.152/0,192.168.237.169,749,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,DNIC-AS-00749,\n2025-03-21 21:34:55.920,2025-03-21 21:34:55.920,6,1,0/0,204.19.184.194,192.168.237.152,1717,64,0,64,204.19.184.194/0,192.168.237.152/0,192.168.237.169,0,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,CA,..,NA/CA/Canada long/lat: 43.6319/-79.3716,no location info,,\n2025-03-21 21:34:56.940,2025-03-21 21:34:56.940,6,1,0/0,199.144.244.204,192.168.237.152,1718,64,0,64,199.144.244.204/0,192.168.237.152/0,192.168.237.169,4152,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,USDA-1,\n2025-03-21 21:34:57.940,2025-03-21 21:34:57.940,6,1,0/0,171.222.9.31,192.168.237.152,1719,64,0,64,171.222.9.31/0,192.168.237.152/0,192.168.237.169,4134,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,CN,..,AS/CN/China long/lat: 34.7732/113.7220,no location info,Chinanet,",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "output",
+          "source": "url",
+          "type": "csv",
+          "uql": "parse-csv",
+          "url": "http://localhost:8000/api/nfdump0/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=dstport_botnets&formato=csv&ordenacao=$ordenacao&agregacao=nenhum&flows=$flows&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Ips Infectados por Botnets - Origem (Flows)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "bpp": false,
+              "dstGeo": true,
+              "dstLocation": true,
+              "engine": true,
+              "exporterID": true,
+              "first": true,
+              "flows": false,
+              "geo": true,
+              "icmpCode": true,
+              "icmpTYpe": true,
+              "input": true,
+              "last": true,
+              "output": true,
+              "proto": false,
+              "srcGeo": true,
+              "srcLocation": true,
+              "tos": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "bpp": 15,
+              "bps": 13,
+              "bytes": 11,
+              "dstAS": 8,
+              "dstAddr": 5,
+              "dstCidade": 29,
+              "dstContinente": 31,
+              "dstGeo": 10,
+              "dstLatitude": 33,
+              "dstLocation": 19,
+              "dstLongitude": 35,
+              "dstNet": 21,
+              "dstOrg": 23,
+              "dstPais": 37,
+              "dstPort": 6,
+              "firstSeen": 1,
+              "flags": 17,
+              "flows": 38,
+              "inDstMac": 26,
+              "inSrcMac": 24,
+              "lastSeen": 2,
+              "outDstMac": 27,
+              "outSrcMac": 25,
+              "packets": 12,
+              "pps": 14,
+              "proto": 16,
+              "routerIP": 0,
+              "srcAS": 7,
+              "srcAddr": 3,
+              "srcCidade": 28,
+              "srcContinente": 30,
+              "srcGeo": 9,
+              "srcLatitude": 32,
+              "srcLocation": 18,
+              "srcLongitude": 34,
+              "srcNet": 20,
+              "srcOrg": 22,
+              "srcPais": 36,
+              "srcPort": 4
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1e3d46"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bytes"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "decbytes"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 50000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 100000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "bps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "packets"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background",
+                  "wrapText": false
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green"
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 5000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 10000
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pps"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "pps"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "flags"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 157
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 20,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.1",
+      "targets": [
+        {
+          "columns": [],
+          "csv_options": {
+            "delimiter": "",
+            "skip_empty_lines": true,
+            "skip_lines_with_error": true
+          },
+          "data": "firstSeen,lastSeen,proto,exporterID,engine,srcAddr,dstAddr,srcPort,dstPort,icmpTYpe,icmpCode,srcNet,dstNet,routerIP,srcAS,dstAS,packets,bytes,flags,tos,inSrcMac,outDstMac,inDstMac,outSrcMac,bps,pps,bpp,srcGeo,dstGeo,srcLocation,dstLocation,srcOrg,dstOrg\n2025-03-21 21:34:48.920,2025-03-21 21:34:48.920,6,1,0/0,214.235.80.3,192.168.237.152,1710,64,0,64,214.235.80.3/0,192.168.237.152/0,192.168.237.169,749,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,DNIC-AS-00749,\n2025-03-21 21:34:49.920,2025-03-21 21:34:49.920,6,1,0/0,16.126.145.240,192.168.237.152,1711,64,0,64,16.126.145.240/0,192.168.237.152/0,192.168.237.169,16509,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,AMAZON-02,\n2025-03-21 21:34:50.940,2025-03-21 21:34:50.940,6,1,0/0,44.11.115.128,192.168.237.152,1712,64,0,64,44.11.115.128/0,192.168.237.152/0,192.168.237.169,49268,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,BE,..,EU/BE/Belgium long/lat: 50.8509/4.3447,no location info,Hermes Telecom BVBA,\n2025-03-21 21:34:51.940,2025-03-21 21:34:51.940,6,1,0/0,125.236.250.224,192.168.237.152,1713,64,0,64,125.236.250.224/0,192.168.237.152/0,192.168.237.169,0,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,NZ,..,OC/NZ/Auckland long/lat: -36.8492/174.7889,no location info,,\n2025-03-21 21:34:52.960,2025-03-21 21:34:52.960,6,1,0/0,44.224.163.10,192.168.237.152,1714,64,0,64,44.224.163.10/0,192.168.237.152/0,192.168.237.169,16509,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/Boardman long/lat: 45.8401/-119.7050,no location info,AMAZON-02,\n2025-03-21 21:34:53.960,2025-03-21 21:34:53.960,6,1,0/0,106.146.92.78,192.168.237.152,1715,64,0,64,106.146.92.78/0,192.168.237.152/0,192.168.237.169,2516,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,JP,..,AS/JP/Osaka long/lat: 34.6967/135.5154,no location info,KDDI CORPORATION,\n2025-03-21 21:34:54.920,2025-03-21 21:34:54.920,6,1,0/0,30.142.10.147,192.168.237.152,1716,64,0,64,30.142.10.147/0,192.168.237.152/0,192.168.237.169,749,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,DNIC-AS-00749,\n2025-03-21 21:34:55.920,2025-03-21 21:34:55.920,6,1,0/0,204.19.184.194,192.168.237.152,1717,64,0,64,204.19.184.194/0,192.168.237.152/0,192.168.237.169,0,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,CA,..,NA/CA/Canada long/lat: 43.6319/-79.3716,no location info,,\n2025-03-21 21:34:56.940,2025-03-21 21:34:56.940,6,1,0/0,199.144.244.204,192.168.237.152,1718,64,0,64,199.144.244.204/0,192.168.237.152/0,192.168.237.169,4152,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,US,..,NA/US/'United States' long/lat: 37.7510/-97.8220,no location info,USDA-1,\n2025-03-21 21:34:57.940,2025-03-21 21:34:57.940,6,1,0/0,171.222.9.31,192.168.237.152,1719,64,0,64,171.222.9.31/0,192.168.237.152/0,192.168.237.169,4134,0,1,40,........,0,50:00:00:01:00:01,00:50:00:00:02:00,50:00:00:01:00:01,50:00:00:01:00:00,0,0,40,CN,..,AS/CN/China long/lat: 34.7732/113.7220,no location info,Chinanet,",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "output",
+          "source": "url",
+          "type": "csv",
+          "uql": "parse-csv",
+          "url": "http://localhost:8000/api/nfdump0/?intervalo=${__from:date:YYYY/MM/DD/HH:mm:ss}-${__to:date:YYYY/MM/DD/HH:mm:ss}&filtro=srcport_botnets&formato=csv&ordenacao=$ordenacao&agregacao=nenhum&flows=$flows&router=${host:raw}&token=$token",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Ips Atacados por Botnets - Destino (Flows)",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "bpp": false,
+              "dstGeo": true,
+              "dstLocation": true,
+              "engine": true,
+              "exporterID": true,
+              "first": true,
+              "flows": false,
+              "geo": true,
+              "icmpCode": true,
+              "icmpTYpe": true,
+              "input": true,
+              "last": true,
+              "output": true,
+              "proto": false,
+              "srcGeo": true,
+              "srcLocation": true,
+              "tos": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "bpp": 15,
+              "bps": 13,
+              "bytes": 11,
+              "dstAS": 8,
+              "dstAddr": 5,
+              "dstCidade": 29,
+              "dstContinente": 31,
+              "dstGeo": 10,
+              "dstLatitude": 33,
+              "dstLocation": 19,
+              "dstLongitude": 35,
+              "dstNet": 21,
+              "dstOrg": 23,
+              "dstPais": 37,
+              "dstPort": 6,
+              "firstSeen": 1,
+              "flags": 17,
+              "flows": 38,
+              "inDstMac": 26,
+              "inSrcMac": 24,
+              "lastSeen": 2,
+              "outDstMac": 27,
+              "outSrcMac": 25,
+              "packets": 12,
+              "pps": 14,
+              "proto": 16,
+              "routerIP": 0,
+              "srcAS": 7,
+              "srcAddr": 3,
+              "srcCidade": 28,
+              "srcContinente": 30,
+              "srcGeo": 9,
+              "srcLatitude": 32,
+              "srcLocation": 18,
+              "srcLongitude": 34,
+              "srcNet": 20,
+              "srcOrg": 22,
+              "srcPais": 36,
+              "srcPort": 4
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [
+    "beesolutions",
+    "beeflow",
+    "netflow"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "mysql",
+          "uid": "${DS_MYSQL-BEEFLOW}"
+        },
+        "definition": "select distinct router from beeapi_flow;",
+        "includeAll": true,
+        "label": "Host",
+        "multi": true,
+        "name": "host",
+        "options": [],
+        "query": "select distinct router from beeapi_flow;",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "10",
+          "value": "10"
+        },
+        "description": "",
+        "label": "Flows",
+        "name": "flows",
+        "options": [
+          {
+            "selected": true,
+            "text": "10",
+            "value": "10"
+          },
+          {
+            "selected": false,
+            "text": "100",
+            "value": "100"
+          },
+          {
+            "selected": false,
+            "text": "1000",
+            "value": "1000"
+          }
+        ],
+        "query": "10, 100, 1000",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "dstip",
+          "value": "dstip"
+        },
+        "label": "Agregação",
+        "name": "agregacao",
+        "options": [
+          {
+            "selected": false,
+            "text": "src",
+            "value": "srcip"
+          },
+          {
+            "selected": true,
+            "text": "dst",
+            "value": "dstip"
+          }
+        ],
+        "query": "src : srcip, dst : dstip",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {
+          "text": "bytes",
+          "value": "bytes"
+        },
+        "label": "Ordenação",
+        "name": "ordenacao",
+        "options": [
+          {
+            "selected": true,
+            "text": "bytes",
+            "value": "bytes"
+          },
+          {
+            "selected": false,
+            "text": "packets",
+            "value": "packets"
+          },
+          {
+            "selected": false,
+            "text": "flows",
+            "value": "flows"
+          }
+        ],
+        "query": "bytes,packets,flows",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "bps",
+          "value": "bps"
+        },
+        "label": "Unidade",
+        "name": "unidade",
+        "options": [
+          {
+            "selected": true,
+            "text": "bps",
+            "value": "bps"
+          },
+          {
+            "selected": false,
+            "text": "pps",
+            "value": "pps"
+          }
+        ],
+        "query": "bps, pps",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": [
+            "$__all"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "includeAll": true,
+        "label": "Portas",
+        "multi": true,
+        "name": "portas",
+        "options": [
+          {
+            "selected": false,
+            "text": "ftp",
+            "value": "21"
+          },
+          {
+            "selected": false,
+            "text": "ssh",
+            "value": "22"
+          },
+          {
+            "selected": false,
+            "text": "telnet",
+            "value": "23"
+          },
+          {
+            "selected": false,
+            "text": "smtp",
+            "value": "25"
+          },
+          {
+            "selected": false,
+            "text": "winbox",
+            "value": "8291"
+          }
+        ],
+        "query": "ftp : 21, ssh : 22, telnet : 23, smtp  : 25, winbox : 8291",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "any",
+          "value": "any"
+        },
+        "label": "Filtro",
+        "name": "filtro",
+        "options": [
+          {
+            "selected": true,
+            "text": "any",
+            "value": "any"
+          }
+        ],
+        "query": "any",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "a72cfbb8-22e5-11f0-9d12-23f8ec9352a7",
+          "value": "a72cfbb8-22e5-11f0-9d12-23f8ec9352a7"
+        },
+        "hide": 2,
+        "label": "Token",
+        "name": "token",
+        "options": [
+          {
+            "selected": true,
+            "text": "a72cfbb8-22e5-11f0-9d12-23f8ec9352a7",
+            "value": "a72cfbb8-22e5-11f0-9d12-23f8ec9352a7"
+          }
+        ],
+        "query": "a72cfbb8-22e5-11f0-9d12-23f8ec9352a7",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "2025-04-27T20:00:00.000Z",
+    "to": "2025-04-27T20:59:59.000Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Dashboard Beeflow (Botnets) - BEE",
+  "uid": "aeh0gv7wdwetca",
+  "version": 4,
+  "weekStart": ""
+}
