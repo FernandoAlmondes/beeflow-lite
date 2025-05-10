@@ -98,6 +98,8 @@
 
 ### Parte 1 - Instalação do Beeflow
 
+- Para instalação do Beeflow use um servidor com Debian 12 puro (Limpo e sem interface gráfica).
+
 --- ---
 - Crie o diretório base para o projeto (Beeflow).
 ```shell
@@ -134,6 +136,8 @@ chmod +x /opt/bee/beeflow/beeflow-install.sh
 --- ---
 
 - Criando o mmdb.nf (Base de dados do Maxmind, caso ainda não tenha os arquivos .zip, crie um conta gratuita na Maxmind, faça download dos arquivos CSV e copie para o diretório /opt/nfdump/src/maxmind)
+
+Ref: [Maxmind](https://www.maxmind.com/en/geolite2/signup)
 
 ```shell
 cd /opt/nfdump/src/maxmind
@@ -442,7 +446,7 @@ cat /opt/bee/beeflow/beesoft/.env
 ```shell
 Home -> Dashboards -> Dashboard Beeflow (X) - BEE -> Settings -> Variables -> token -> TOKEN_API_AQUI
 ```
-- Faça esse mesmo procedimento pada cada um dos Dashboards disponíveis na versão Lite e pronto ;)
+- Faça esse mesmo procedimento para cada um dos Dashboards disponíveis na versão Lite e pronto ;)
 
 --- ---
 
