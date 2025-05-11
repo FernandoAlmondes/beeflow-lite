@@ -2,6 +2,14 @@
 # AUtor: Fernando Almondes
 # Data: 10/05/2025 - 10:33
 
+echo "---------------------------------------------------------------------------------"
+echo ""
+echo "--> Desenvolvido por: Bee Solutions"
+echo "--> Autor: Fernando Almondes"
+echo "--> Iniciando instalacao do Beeflow Lite, por favor aguarde..."
+echo ""
+echo "---------------------------------------------------------------------------------"
+
 # Instalacao das dependencias do Linux para o Beeflow
 apt update
 apt install -y default-mysql-server nginx build-essential libtool autoconf automake bison flex pkg-config libpcap-dev librrd-dev git unzip python3.11-venv python3.11 python3.11-dev default-libmysqlclient-dev sudo libpq-dev tcpdump uuid
@@ -164,3 +172,11 @@ service grafana-server restart
 instala_nfdump
 instala_beeflow
 instala_grafana
+
+echo ""
+echo "---------------------------------------------------------------------------------"
+echo ""
+echo "--> Instalacao do Beeflow Finalizada..."
+echo "--> Siga as demais instrucoes no Github."
+echo ""
+echo "---------------------------------------------------------------------------------"
