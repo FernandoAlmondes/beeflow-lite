@@ -324,9 +324,9 @@ g-space=1024
 
 --- ---
 
-### Parte 3 - Liberando o acesso ao Admin para o seu IP, libere o seu ip normalmente o que aparece em meuip.com.br, ou seja, o IP de origem a partir de onde você acessará o Beeflow Admin
+### Parte 3 - Liberando o acesso ao Admin e a API para o seu IP, libere o seu ip normalmente o que aparece em meuip.com.br, ou seja, o IP de origem a partir de onde você acessará o Beeflow Admin ou a API
 
-- Libere os ips que poderam requisitar o servidor seguindo o exemplo no seu arquivo settings.py
+- Libere os ips que poderam requisitar a API e o Admin seguindo o exemplo no seu arquivo settings.py
 ```shell
 nano /opt/bee/beeflow/beesoft/settings.py
 
@@ -386,69 +386,15 @@ nfdump -R /opt/bee/beeflow/flows/ "proto udp and dst port 53" -A dstip -O bytes 
 
 --- ---
 
-### Parte 7 - Instalação do Grafana
-- Siga o passo a passo de instalação do site oficial (Instale sempre a versão mais recente que não seja uma beta)
-- [Instalação do Grafana](https://grafana.com/grafana/download)
-
-- Faça como orientado ao final da instalação e habilite o Grafana para iniciar junto ao boot e inicie o serviço
-```shell
-/bin/systemctl daemon-reload
-/bin/systemctl enable grafana-server
-/bin/systemctl start grafana-server
-```
-
-- Acesse o Grafana via IP do seu servidor na porta 3000 (admin/admin são as credenciais padrões)
+### Parte 7 - Acessando o Grafana já com tudo pronto ;)
+- Acesse o Grafana via IP do seu servidor na porta 3000 (admin/beesolutions são as credenciais padrões)
 - Grafana: http://IP-DO-SEU-SERVIDOR:3000
 
---- ---
-
-### Parte 8 - Ajustes no Grafana
-- Crie o datasource do mysql com as credenciais de acesso do usuario beeflowconsultor criado anteriormente:
-
-- Veja a senha do usuario criado para o Grafana em (Valor de: DB_PASSWORD_GRAFANA):
-```shell
-cat /opt/bee/beeflow/beesoft/.env
-```
-
-```shell
-Home -> Connections -> Data sources -> mysql -> mysql-beeflow
-Host URL: localhost:3306
-Database name: beeflow_db_01
-Username: beeflowconsultor
-Password: senha-do-usuario-beeflowconsultor
-```
-
-- Instale o plugin do Infinity no Grafana, habilite e salve, não configure nada diretamente no plugin, tudo será feito nos dashboards:
-```shell
-Home -> Administration -> Plugins and data -> Plugins -> Infinity
-Home -> Connections -> Data sources -> yesoreyeram-infinity-datasource
-```
-
-- Instale o plugin de Clock no Grafana:
-```shell
-Home -> Administration -> Plugins and data -> Plugins -> Clock
-```
-
-- Importe os arquivos json no Grafana (Arquivos no diretorio grafana);
-
-- Defina o Dashboard de Menu como inicial no perfil do usuário:
-```shell
-Home -> admin -> Profile -> Home Dashboard -> Dashboard Inicial (Beeflow) - BEE
-```
-
-- Edite a variável Token em cada dashboard adicionando o seu Token.
-
-- Veja o token criado para a API em (Valor de: TOKEN_API):
-```shell
-cat /opt/bee/beeflow/beesoft/.env
-```
-
-```shell
-Home -> Dashboards -> Dashboard Beeflow (X) - BEE -> Settings -> Variables -> token -> TOKEN_API_AQUI
-```
-- Faça esse mesmo procedimento para cada um dos Dashboards disponíveis na versão Lite e pronto ;)
+- * Recomendamos que altere essa senha do Grafana após finalizar a instalação.
 
 --- ---
+
+### Parte 8 - Finalizando
 
 - Após validação, lembre-se de desativar o modo debug no arquivo settings e reiniciar a aplicação.
 ```shell

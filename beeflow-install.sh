@@ -6,6 +6,10 @@
 apt update
 apt install -y default-mysql-server nginx build-essential libtool autoconf automake bison flex pkg-config libpcap-dev librrd-dev git unzip python3.11-venv python3.11 python3.11-dev default-libmysqlclient-dev sudo libpq-dev tcpdump uuid
 
+token_api=$(uuid)
+senha_bd_beeflowadmin=$(uuid)
+senha_bd_beeflowconsultor=$(uuid)
+
 instala_nfdump () {
 
 # Parte 1 - Instalacao do Nfdump #
@@ -50,21 +54,17 @@ source venv/bin/activate
 
 pip install -r /opt/bee/beeflow/dependencias.txt
 
-senha_bd=$(uuid)
-senha_grafana=$(uuid)
-
 # Partindo do principio que a instalacao seja a padrao sem senha
 mysql -u root <<EOF
 create database beeflow_db_01 character set utf8mb4 collate utf8mb4_bin;
-create user beeflowadmin@localhost identified by '${senha_bd}';
+create user beeflowadmin@localhost identified by '${senha_bd_beeflowadmin}';
 grant all privileges on beeflow_db_01.* to beeflowadmin@localhost;
 
-create user beeflowconsultor@localhost identified by '${senha_grafana}';
+create user beeflowconsultor@localhost identified by '${senha_bd_beeflowconsultor}';
 grant SELECT on beeflow_db_01.* to beeflowconsultor@localhost;
 EOF
 
 chave_django=$(python /opt/bee/beeflow/beeflow_chave.py)
-token_api=$(uuid)
 
 mv /opt/bee/beeflow/beesoft/settings.exemplo /opt/bee/beeflow/beesoft/settings.py
 
@@ -73,8 +73,8 @@ mv /opt/bee/beeflow/beesoft/.env.exemplo /opt/bee/beeflow/beesoft/.env
 perl -pi -e "\$val = q{$chave_django}; s/SUA-CHAVE-DJANGO-AQUI/\$val/g" /opt/bee/beeflow/beesoft/.env
 
 sed -i "s/TOKEN-UUID-API-AQUI/$token_api/g" /opt/bee/beeflow/beesoft/.env
-sed -i "s/SENHA-BANCO-DE-DADOS-ADMIN/$senha_bd/g" /opt/bee/beeflow/beesoft/.env
-sed -i "s/SENHA-BANCO-DE-DADOS-GRAFANA/$senha_grafana/g" /opt/bee/beeflow/beesoft/.env
+sed -i "s/SENHA-BANCO-DE-DADOS-ADMIN/$senha_bd_beeflowadmin/g" /opt/bee/beeflow/beesoft/.env
+sed -i "s/SENHA-BANCO-DE-DADOS-GRAFANA/$senha_bd_beeflowconsultor/g" /opt/bee/beeflow/beesoft/.env
 
 
 python manage.py makemigrations
@@ -125,5 +125,38 @@ chmod +x /opt/bee/beeflow/beeflow_recursos.sh
 
 }
 
+instala_grafana () {
+
+apt-get install -y adduser libfontconfig1 musl
+
+cd /tmp
+
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise_12.0.0_amd64.deb
+
+dpkg -i /tmp/grafana-enterprise_12.0.0_amd64.deb
+
+/bin/systemctl daemon-reload
+/bin/systemctl enable grafana-server
+
+grafana-cli plugins install yesoreyeram-infinity-datasource
+grafana-cli plugins install grafana-clock-panel
+service grafana-server stop
+
+mv /var/lib/grafana/grafana.db /var/lib/grafana/grafana.db.bkp
+
+mv /opt/bee/beeflow/grafana/grafana.db /var/lib/grafana/
+
+chown -R grafana:grafana /var/lib/grafana/grafana.db
+
+# Ajustando token da API nos dashboards
+sed -i "s/f17746e4-2eaf-11f0-b1ee-d78bd729f6c4/$token_api/g" /var/lib/grafana/grafana.db
+
+/opt/bee/beeflow/venv/bin/python /opt/bee/beeflow/grafana/bee_grafana.py "$senha_bd_beeflowconsultor"
+
+service grafana-server restart
+
+}
+
 instala_nfdump
 instala_beeflow
+instala_grafana
