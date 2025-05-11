@@ -378,7 +378,7 @@ nfdump -R /opt/bee/beeflow/flows/ "proto udp and dst port 53" -A dstip -O bytes 
 --- ---
 
 ### Parte 6 - Adicione o Router que vai exportar os flows
-- Acesse o Django Admin e cadastre o IP do roteador que vai enviar os flows (Tabela Flow).
+- Acesse o Django Admin e cadastre o IP do roteador que vai enviar os flows (Tabela Flow, beesoft/beesoft são as credenciais padrões).
 - Django Admin: http://IP-DO-SEU-SERVIDOR:8000
 
 - A versão Lite é limitada para somente um roteador, você até pode cadastrar mais de um na base, mas somente o router mais antigo será considerado.
