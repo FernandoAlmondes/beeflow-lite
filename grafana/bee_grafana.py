@@ -20,7 +20,7 @@ except:
 url_grafana = 'http://localhost:3000/login'
 
 headers = {
-    'content-type': 'application/json'
+    'content-type': 'application/json',
 }
 
 data = {
@@ -33,13 +33,27 @@ session = requests.Session()
 # Logando no Grafana
 logando = session.post(url_grafana, json=data, headers=headers)
 
+print(logando.text)
+
 ##########
 
 # Criar uma nova datasource
 grafana_url_datasource = 'http://localhost:3000/api/datasources'
 
+# Verificando versao do datasource
+grafana_url_dt = 'http://localhost:3000/api/datasources/uid/aell2zgszaltsc?accesscontrol=true'
+
+dt = session.get(grafana_url_dt, headers=headers)
+
+versao = json.loads(dt.text)
+versao = versao['version']
+
 dt_id = 1
 dt_uid = "aell2zgszaltsc"
+
+print('ID:', dt_id)
+print('UID:', dt_uid)
+print('Versao:', versao)
 
 data = {
     "id": dt_id,
@@ -58,7 +72,7 @@ data = {
     "isDefault":False,
     "jsonData":{"maxOpenConns":100,"maxIdleConns":100,"maxIdleConnsAuto":True,"connMaxLifetime":14400,"database":"beeflow_db_01"},
     "secureJsonFields":{},
-    "version":1,
+    "version": versao,
     "readOnly":False,
     "accessControl":{"alert.instances.external:read":True,"alert.instances.external:write":True,"alert.notifications.external:read":True,"alert.notifications.external:write":True,"alert.rules.external:read":True,"alert.rules.external:write":True,"datasources.id:read":True,"datasources:delete":True,"datasources:query":True,"datasources:read":True,"datasources:write":True},
     "apiVersion":"","secureJsonData":{"password":senha_bd}
@@ -73,3 +87,19 @@ editando_datasource = session.put(grafana_url_datasource_uid, json=data, cookies
 
 #print(editando_datasource.text)
 
+##########
+
+# Fazendo logout
+
+grafana_url_tokens = 'http://localhost:3000/api/admin/users/cell2p9tb20w0d/auth-tokens'
+
+checa_tokens = session.get(grafana_url_tokens)
+
+tokens_json = json.loads(checa_tokens.text)
+
+grafana_url_revoke_token = 'http://localhost:3000/api/admin/users/cell2p9tb20w0d/revoke-auth-token'
+
+# Desloga cada um dos usuarios logados menos a sessao atual
+for i in tokens_json:
+    data = {"authTokenId":i['id']}
+    session.post(grafana_url_revoke_token, headers=headers, json=data)
