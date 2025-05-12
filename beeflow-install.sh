@@ -150,7 +150,11 @@ grafana-cli plugins install yesoreyeram-infinity-datasource
 grafana-cli plugins install grafana-clock-panel
 service grafana-server stop
 
-mv /var/lib/grafana/grafana.db /var/lib/grafana/grafana.db.bkp
+check=$(ls -la /var/lib/grafana/grafana.db)
+
+if [[ ! -z $check ]]; then
+    mv /var/lib/grafana/grafana.db /var/lib/grafana/grafana.db.bkp
+fi
 
 mv /opt/bee/beeflow/grafana/grafana.db /var/lib/grafana/
 
