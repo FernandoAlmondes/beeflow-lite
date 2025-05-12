@@ -137,7 +137,7 @@ chmod +x /opt/bee/beeflow/beeflow-install.sh
 
 - Criando o mmdb.nf (Base de dados do Maxmind, caso ainda não tenha os arquivos .zip, crie um conta gratuita na Maxmind, faça download dos arquivos CSV e copie para o diretório /opt/nfdump/src/maxmind)
 
-Ref: [Maxmind](https://www.maxmind.com/en/geolite2/signup)
+Acesse: [Maxmind](https://www.maxmind.com/en/geolite2/signup) (* Obrigatório!)
 
 ```shell
 cd /opt/nfdump/src/maxmind
