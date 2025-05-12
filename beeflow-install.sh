@@ -157,7 +157,7 @@ mv /opt/bee/beeflow/grafana/grafana.db /var/lib/grafana/
 chown -R grafana:grafana /var/lib/grafana/grafana.db
 
 # Ajustando token da API nos dashboards
-sed -i "s/f17746e4-2eaf-11f0-b1ee-d78bd729f6c4/$token_api/g" /var/lib/grafana/grafana.db
+sed -i "s/token-api-beeflow-uuid/$token_api/g" /var/lib/grafana/grafana.db
 
 service grafana-server restart
 
