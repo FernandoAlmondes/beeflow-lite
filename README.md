@@ -58,7 +58,7 @@
 
 ### Parte 0 - Mais informações e Requisitos de Hardware do Beeflow
 
-- Antes de iniciar leia com atenção o nosso [Contrato de Licença de Uso (EULA) para o Beeflow Lite](https://github.com/FernandoAlmondes/beeflow-lite-doc/blob/main/EULA.txt).
+- Antes de iniciar leia com atenção o nosso [Contrato de Licença de Uso (EULA) para o Beeflow Lite](https://github.com/FernandoAlmondes/beeflow-lite/blob/main/EULA.txt).
 
 --- ---
 
