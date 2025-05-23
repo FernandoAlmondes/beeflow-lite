@@ -98,7 +98,7 @@
 
 ### Parte 1 - Instalação do Beeflow
 
-- Para instalação do Beeflow use um servidor com Debian 12 puro (Limpo e sem interface gráfica).
+- ⚠️ Para instalação do Beeflow use um servidor com Debian 12 puro (Limpo e sem interface gráfica). ⚠️
 
 --- ---
 - Crie o diretório base para o projeto (Beeflow).

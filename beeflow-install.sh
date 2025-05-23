@@ -12,7 +12,7 @@ echo "--------------------------------------------------------------------------
 
 # Instalacao das dependencias do Linux para o Beeflow
 apt update
-apt install -y default-mysql-server nginx build-essential libtool autoconf automake bison flex pkg-config libpcap-dev librrd-dev git unzip python3.11-venv python3.11 python3.11-dev default-libmysqlclient-dev sudo libpq-dev tcpdump uuid
+apt install -y default-mysql-server nginx build-essential libtool autoconf automake bison flex pkg-config libpcap-dev librrd-dev wget net-tools git unzip python3.11-venv python3.11 python3.11-dev default-libmysqlclient-dev sudo libpq-dev tcpdump uuid
 
 token_api=$(uuid)
 senha_bd_beeflowadmin=$(uuid)
