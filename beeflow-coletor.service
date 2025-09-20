@@ -1,5 +1,6 @@
 [Unit]
 Description=Beeflow coletor
+After=network.target
 
 [Service]
 ExecStart=/usr/local/bin/nfcapd -S2 -p 2055 -w /opt/bee/beeflow/flows/ -t60 -z lzo -s 1024

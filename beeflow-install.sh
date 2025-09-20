@@ -139,9 +139,9 @@ apt-get install -y adduser libfontconfig1 musl
 
 cd /tmp
 
-wget https://dl.grafana.com/enterprise/release/grafana-enterprise_12.0.0_amd64.deb
+wget https://dl.grafana.com/grafana-enterprise/release/12.1.1/grafana-enterprise_12.1.1_16903967602_linux_amd64.deb
 
-dpkg -i /tmp/grafana-enterprise_12.0.0_amd64.deb
+dpkg -i /tmp/grafana-enterprise_12.1.1_16903967602_linux_amd64.deb
 
 /bin/systemctl daemon-reload
 /bin/systemctl enable grafana-server
@@ -150,7 +150,7 @@ grafana-cli plugins install yesoreyeram-infinity-datasource
 grafana-cli plugins install grafana-clock-panel
 service grafana-server stop
 
-check=$(ls -la /var/lib/grafana/grafana.db)
+check=$(ls -la /var/lib/grafana/grafana.db 2>/dev/null)
 
 if [[ ! -z $check ]]; then
     mv /var/lib/grafana/grafana.db /var/lib/grafana/grafana.db.bkp

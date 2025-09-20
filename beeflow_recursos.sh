@@ -40,7 +40,7 @@ echo "--> Uso de memoria muito alto reiniciando servicos do Beeflow ($m%)!"
 echo ""
 
 # Parando o analisador
-killall beeflow_anomalias.py
+killall beeflow_anomalias.bin
 
 # Parando o nfdump
 killall nfdump

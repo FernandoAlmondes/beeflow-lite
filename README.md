@@ -12,12 +12,12 @@
 --- ---
 
 - Distribuições homologados (Sistemas Operacionais Linux Server)
-> - Debian 12 ou Superior (Puro sem interface gráfica)
-> - MySQL 8.x ou superior ou MariaDB 10.x ou superior
-> - Python 3.11 ou superior
-> - Django 5.x ou superior
-> - Grafana 11.x ou superior
-> - Nfdump 1.7.6 ou superior
+> - Debian 12 (Puro sem interface gráfica)
+> - MySQL 8.x ou MariaDB 10.x
+> - Python 3.11
+> - Django 5.x
+> - Grafana 11.x
+> - Nfdump 1.7.6
 
 --- ---
 
