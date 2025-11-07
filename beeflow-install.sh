@@ -14,9 +14,9 @@ echo "--------------------------------------------------------------------------
 apt update
 apt install -y default-mysql-server nginx build-essential libtool autoconf automake bison flex pkg-config libpcap-dev librrd-dev wget net-tools git unzip python3.11-venv python3.11 python3.11-dev default-libmysqlclient-dev sudo libpq-dev tcpdump uuid
 
-token_api=$(uuid)
-senha_bd_beeflowadmin=$(uuid)
-senha_bd_beeflowconsultor=$(uuid)
+token_api=$(uuid -v4)
+senha_bd_beeflowadmin=$(uuid -v4)
+senha_bd_beeflowconsultor=$(uuid -v4)
 
 instala_nfdump () {
 
@@ -129,7 +129,7 @@ service nginx restart
 chmod +x /opt/bee/beeflow/beeflow_timeseries.bin
 chmod +x /opt/bee/beeflow/beeflow_recursos.sh
 
-(crontab -l 2>/dev/null; echo "* * * * * /opt/bee/beeflow/beeflow_recursos.sh >> /opt/bee/beeflow/tmp/log_beeflow_recursos.txt") | crontab -
+echo "* * * * * /opt/bee/beeflow/beeflow_recursos.sh >> /opt/bee/beeflow/tmp/log_beeflow_recursos.txt" >> /var/spool/cron/crontabs/root
 
 }
 
